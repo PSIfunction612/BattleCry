@@ -108,8 +108,8 @@ int main(int  argc, char** argv)
         auto pSprite = resourceManager.loadSprite("NewSprite",
                                                 "DefaultTexture",
                                                 "SpriteShader",
-                                                50, 100);
-        pSprite->setPosition(glm::vec2(300, 100));
+                                                256, 256);
+        pSprite->setPosition(glm::vec2(300, 200));
         pSprite->setRotation(90.f);
 
         GLuint points_vbo = 0;

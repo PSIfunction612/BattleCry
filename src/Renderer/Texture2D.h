@@ -11,7 +11,7 @@
 namespace Renderer{
     class Texture2D {
     public:
-        Texture2D(GLuint width, GLuint heigth, const unsigned char* data,
+        Texture2D(GLuint width, GLuint height, const unsigned char* data,
                 const unsigned int channels, const GLenum filter,
                 const GLenum wrapMode);
 

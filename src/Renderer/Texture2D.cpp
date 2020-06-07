@@ -4,11 +4,11 @@
 
 #include "Texture2D.h"
 namespace Renderer{
-    Texture2D::Texture2D(GLuint width, GLuint heigth,
+    Texture2D::Texture2D(GLuint width, GLuint height,
                         const unsigned char *data,
                         const unsigned int channels,
                         const GLenum filter, const GLenum wrapMode)
-            :m_width(width), m_heigth(heigth){
+            :m_width(width), m_heigth(height){
         switch (channels) {
             case 3:
                 m_mode = GL_RGB;
