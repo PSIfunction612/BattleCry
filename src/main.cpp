@@ -103,12 +103,14 @@ int main(int  argc, char** argv)
             std::cerr<< "Can't create shader program " << "SpriteShader" << std::endl;
         }
 
-        auto tex = resourceManager.loadTexture("DefaultTexture", "res\\textures\\mario.png");
+        auto tex = resourceManager.loadTexture("DefaultTexture", "res\\textures\\atlas.png");
 
+        std::vector<std::string> subTexturesNames = {"tank_yellow", "tank_yellow_2", "tank_yellow_left"};
+        auto pTextureAtlas = resourceManager.loadTextureAtlas("DefaultTextureAtlas", "res\\textures\\atlas.png", std::move(subTexturesNames), 16, 16);
         auto pSprite = resourceManager.loadSprite("NewSprite",
-                                                "DefaultTexture",
+                                                "DefaultTextureAtlas",
                                                 "SpriteShader",
-                                                256, 256);
+                                                256, 256, "tank_yellow");
         pSprite->setPosition(glm::vec2(300, 200));
         pSprite->setRotation(90.f);
 
@@ -176,7 +178,6 @@ int main(int  argc, char** argv)
             glDrawArrays(GL_TRIANGLES, 0, 3);
 
             pSprite->render();
-
             /* Swap front and back buffers */
             glfwSwapBuffers(pWindow);
 
