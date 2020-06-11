@@ -1,6 +1,5 @@
 /build/
 /.idea/
 /vs-build/
-/res/shaders/
 /res/textures/
 /build-release/
