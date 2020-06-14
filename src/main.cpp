@@ -89,24 +89,24 @@ int main(int  argc, char** argv)
     {
         ResourceManager resourceManager(argv[0]);
         auto pDefaultShaderProgram = resourceManager.loadShaderProgram("DefaultShader",
-                                                                                "res\\shaders\\vertex.txt",
-                                                                       "res\\shaders\\fragment.txt");
+                                                                                "res/shaders/vertex.txt",
+                                                                       "res/shaders/fragment.txt");
         if (!pDefaultShaderProgram) {
             std::cerr << "Can't create shader program" << "DefaultShader" << std::endl;
             return -1;
         }
 
         auto pSpriteShaderProgram = resourceManager.loadShaderProgram("SpriteShader",
-                                                                        "res\\shaders\\vSprite.txt",
-                                                                        "res\\shaders\\fSprite.txt");
+                                                                        "res/shaders/vSprite.txt",
+                                                                        "res/shaders/fSprite.txt");
         if (!pSpriteShaderProgram) {
             std::cerr<< "Can't create shader program " << "SpriteShader" << std::endl;
         }
 
-        auto tex = resourceManager.loadTexture("DefaultTexture", "res\\textures\\atlas.png");
+        auto tex = resourceManager.loadTexture("DefaultTexture", "res/textures/atlas.png");
 
         std::vector<std::string> subTexturesNames = {"tank_yellow", "tank_yellow_2", "tank_yellow_left"};
-        auto pTextureAtlas = resourceManager.loadTextureAtlas("DefaultTextureAtlas", "res\\textures\\atlas.png", std::move(subTexturesNames), 16, 16);
+        auto pTextureAtlas = resourceManager.loadTextureAtlas("DefaultTextureAtlas", "res/textures/atlas.png", std::move(subTexturesNames), 16, 16);
         auto pSprite = resourceManager.loadSprite("NewSprite",
                                                 "DefaultTextureAtlas",
                                                 "SpriteShader",

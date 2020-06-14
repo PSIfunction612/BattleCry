@@ -64,7 +64,7 @@ ResourceManager::loadTexture(const std::string &textureName, const std::string &
     int width = 0;
     int heigth = 0;
     stbi_set_flip_vertically_on_load(true);
-    unsigned char *pixels = stbi_load(std::string(m_path + "\\" + texturePath).c_str(), &width, &heigth, &channels, 0);
+    unsigned char *pixels = stbi_load(std::string(m_path + "/" + texturePath).c_str(), &width, &heigth, &channels, 0);
     if (!pixels) {
         std::cerr << "Can't load image " + texturePath << std::endl;
         return nullptr;
@@ -153,9 +153,9 @@ ResourceManager::loadTextureAtlas(const std::string textureName, const std::stri
 
 std::string ResourceManager::getFileString(const std::string &relativeFilePath) const {
     std::ifstream f;
-    f.open(m_path + "\\" + relativeFilePath.c_str(), std::ios::in | std::ios::binary);
+    f.open(m_path + "/" + relativeFilePath.c_str(), std::ios::in | std::ios::binary);
     if (!f.is_open()) {
-        std::cerr << "Can't open file in such directory: " << m_path + "\\" + relativeFilePath << std::endl;
+        std::cerr << "Can't open file in such directory: " << m_path + "/" + relativeFilePath << std::endl;
         return std::string{};
     }
 
