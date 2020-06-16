@@ -1,5 +1,6 @@
 /build/
 /.idea/
+/.vscode/
 /vs-build/
 /res/textures/
 /build-release/
